@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @apply bg-[#f7fafc] text-[#0f172a] antialiased;
+  background: linear-gradient(135deg, #f7fafc 0%, #eef2ff 40%, #f8fafc 100%);
+  background-attachment: fixed;
+  position: relative;
+  overflow-x: hidden;
+}
+
+main {
+  position: relative;
+  z-index: 2;
+}
+
+/* Animated background orbs - scroll with page */
+main::before {
+  content: '';
+  position: absolute;
+  top: 35%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+main::after {
+  content: '';
+  position: absolute;
+  top: 65%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 30s ease-in-out infinite reverse;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Additional orbs via body decoration */
+body::before {
+  content: '';
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 25s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  bottom: -5%;
+  left: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.07) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 28s ease-in-out infinite reverse;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-40px) translateX(15px); }
+}
+
+/* Hide video controls on iOS */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(37, 99, 235, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(37, 99, 235, 0.3);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(37, 99, 235, 0.5);
+}
+
+/* Vibrant divider */
+.hr-glow {
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(37, 99, 235, 0.35), rgba(34, 197, 94, 0.35), transparent);
+}
