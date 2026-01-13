@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { Section } from '@/components/Section';
-import { Card, Badge } from '@/components/Cards';
+import { Badge } from '@/components/Cards';
+import { GenericCard } from '@/components/GenericCard';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 export default function ContactPage() {
@@ -31,7 +32,7 @@ export default function ContactPage() {
     <div className="min-h-[60vh]">
       <Section eyebrow="Contact" title="Reach out—let’s build something clean and scalable">
         <div className="grid gap-4 lg:grid-cols-5">
-          <Card animated={false} index={0} className="p-6 lg:col-span-2">
+          <GenericCard padding="p-6" colSpan="lg:col-span-2">
             <div className="flex items-center justify-between">
               <div className="text-sm font-semibold text-slate-900">Direct</div>
               <Badge>Placeholder</Badge>
@@ -48,9 +49,9 @@ export default function ContactPage() {
             <p className="mt-6 text-sm text-slate-600">
               Typical projects: modern websites, booking + payments, automation, media pipelines, and ongoing support tiers.
             </p>
-          </Card>
+          </GenericCard>
 
-          <Card animated={false} index={1} className="p-6 lg:col-span-3">
+          <GenericCard padding="p-6" colSpan="lg:col-span-3" display="flex" layout="flex-col">
             <div className="text-sm font-semibold text-slate-900">Send a message</div>
             <p className="mt-2 text-sm text-slate-600">
               This form posts to a server-side Next.js API route. Replace the handler with email (Resend/SendGrid) when ready.
@@ -120,7 +121,7 @@ export default function ContactPage() {
                 <div className={`text-sm ${status === 'error' ? 'text-red-600' : 'text-slate-700'}`}>{message}</div>
               )}
             </form>
-          </Card>
+          </GenericCard>
         </div>
       </Section>
     </div>

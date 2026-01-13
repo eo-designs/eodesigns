@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import { Section } from '@/components/Section';
-import { Card, Badge } from '@/components/Cards';
+import { Badge } from '@/components/Cards';
+import { GenericCard } from '@/components/GenericCard';
 
 export default function BookingPage() {
   return (
     <div className="min-h-[60vh]">
       <Section eyebrow="Booking" title="Book an intro call">
         <div className="grid gap-4 lg:grid-cols-5">
-          <Card animated={false} index={0} className="p-6 lg:col-span-2">
+          <GenericCard padding="p-6" colSpan="lg:col-span-2">
             <div className="flex items-center justify-between">
               <div className="text-sm font-semibold text-slate-900">What we'll cover</div>
               <Badge>15–20 min</Badge>
@@ -31,26 +32,26 @@ export default function BookingPage() {
             >
               Prefer email instead? Contact me
             </Link>
-          </Card>
+          </GenericCard>
 
-          <Card animated={false} index={1} className="p-6 lg:col-span-3">
+          <GenericCard padding="p-6" colSpan="lg:col-span-3" minHeight="min-h-[650px]" display="flex" layout="flex-col">
             <div className="text-sm font-semibold text-slate-900">Scheduler embed (placeholder)</div>
             <p className="mt-2 text-sm text-slate-600">
               Drop your Cal.com or Calendly embed here. Replace the iframe URL with your scheduling link.
             </p>
 
-            <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+            <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 flex-1">
               <iframe
                 title="Booking"
                 src="https://cal.com/your-username/intro"
-                className="h-[650px] w-full"
+                className="h-full w-full"
               />
             </div>
 
             <p className="mt-3 text-xs text-slate-500">
               Tip: If you want availability to sync with Google Calendar, connect it in your scheduler settings.
             </p>
-          </Card>
+          </GenericCard>
         </div>
       </Section>
     </div>

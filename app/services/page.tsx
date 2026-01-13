@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { Section } from '@/components/Section';
-import { Card, Badge } from '@/components/Cards';
+import { Badge } from '@/components/Cards';
+import { GenericCard } from '@/components/GenericCard';
 import { Bot, Camera, ClipboardList, Cloud, Code2, Gauge, Headphones, Paintbrush, ShieldCheck, Workflow, Database, Video } from 'lucide-react';
 
 type Item = { icon: React.ReactNode; title: string; body: string };
@@ -52,7 +53,7 @@ export default function ServicesPage() {
       <Section eyebrow="Services" title="Engineer-minded services that scale with you">
         <div className="grid gap-4">
           {buckets.map((b, i) => (
-            <Card key={b.name} index={i} animated={false} className="p-6">
+            <GenericCard key={b.name} index={i} padding="p-6">
               <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                 <div>
                   <div className="text-lg font-semibold text-slate-900">{b.name}</div>
@@ -63,7 +64,7 @@ export default function ServicesPage() {
 
               <div className="mt-5 grid gap-4 md:grid-cols-3">
                 {b.items.map((i) => (
-                  <div key={i.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <GenericCard key={i.title} padding="p-4" backgroundColor="bg-slate-50">
                     <div className="flex items-start gap-3">
                       <div className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-100 text-slate-700">
                         {i.icon}
@@ -73,14 +74,14 @@ export default function ServicesPage() {
                         <p className="mt-1 text-sm text-slate-600">{i.body}</p>
                       </div>
                     </div>
-                  </div>
+                  </GenericCard>
                 ))}
               </div>
-            </Card>
+            </GenericCard>
           ))}
         </div>
 
-        <Card animated={false} className="mt-8 p-6">
+        <GenericCard padding="p-6" className="mt-8">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div>
               <div className="text-sm font-semibold text-slate-900">Not sure which bucket you need?</div>
@@ -95,7 +96,7 @@ export default function ServicesPage() {
               </Link>
             </div>
           </div>
-        </Card>
+        </GenericCard>
       </Section>
     </div>
   );

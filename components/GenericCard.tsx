@@ -73,7 +73,7 @@ interface GenericCardProps {
   /**
    * Display type (flex or grid layout)
    */
-  display?: 'block' | 'flex' | 'grid';
+  display?: 'block' | 'flex' | 'grid' | 'inline-block' | 'inline-flex';
 
   /**
    * Flex or grid specific properties
@@ -117,6 +117,56 @@ interface GenericCardProps {
    * Callback on animation completion
    */
   onAnimationComplete?: () => void;
+
+  /**
+   * Grid column span (e.g., 'col-span-2', 'md:col-span-3')
+   */
+  colSpan?: string;
+
+  /**
+   * Minimum height (e.g., 'min-h-[650px]')
+   */
+  minHeight?: string;
+
+  /**
+   * Maximum width (e.g., 'max-w-2xl')
+   */
+  maxWidth?: string;
+
+  /**
+   * Overflow behavior (e.g., 'overflow-hidden', 'overflow-y-auto')
+   */
+  overflow?: string;
+
+  /**
+   * Position (e.g., 'relative', 'absolute')
+   */
+  position?: string;
+
+  /**
+   * Opacity (e.g., '0.5', 'opacity-75')
+   */
+  opacity?: string;
+
+  /**
+   * Transform utilities (e.g., 'rotate-45', 'scale-110')
+   */
+  transform?: string;
+
+  /**
+   * Transition effects
+   */
+  transition?: string;
+
+  /**
+   * Custom cursor
+   */
+  cursor?: string;
+
+  /**
+   * Pointer events
+   */
+  pointerEvents?: string;
 }
 
 /**
@@ -130,6 +180,8 @@ export function GenericCard({
   animated = false,
   width = 'w-full',
   height,
+  minHeight,
+  maxWidth,
   padding = 'p-0',
   border = 'border border-slate-200',
   borderRadius = 'rounded-2xl',
@@ -139,6 +191,14 @@ export function GenericCard({
   gap,
   display = 'block',
   layout,
+  overflow,
+  position,
+  opacity,
+  transform,
+  transition = 'transition-all duration-300',
+  cursor,
+  pointerEvents,
+  colSpan,
   animationInitial = { opacity: 0, y: 40, scale: 0.92 },
   animationFinal = { opacity: 1, y: 0, scale: 1 },
   animationDuration = 0.6,
@@ -177,20 +237,31 @@ export function GenericCard({
     displayClass = `flex ${layout || 'flex-col'} ${gap || 'gap-4'}`;
   } else if (display === 'grid') {
     displayClass = `grid ${layout || 'grid-cols-1'} ${gap || 'gap-4'}`;
+  } else if (display === 'inline-flex') {
+    displayClass = `inline-flex ${layout || 'flex-col'} ${gap || 'gap-4'}`;
   }
 
-  const hoverClass = hoverEffect ? 'hover:shadow-glow transition-all duration-300' : '';
+  const hoverClass = hoverEffect ? shadow : '';
 
   const baseClasses = cn(
     width,
     height,
+    minHeight,
+    maxWidth,
     padding,
     border,
     borderRadius,
     backgroundColor,
-    shadow,
-    displayClass,
     hoverClass,
+    displayClass,
+    overflow,
+    position,
+    opacity,
+    transform,
+    transition,
+    cursor,
+    pointerEvents,
+    colSpan,
     className
   );
 

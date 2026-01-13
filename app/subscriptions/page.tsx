@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { Section } from '@/components/Section';
-import { Card, Badge } from '@/components/Cards';
+import { Badge } from '@/components/Cards';
+import { GenericCard } from '@/components/GenericCard';
 import { CheckCircle2, Sparkles, Clock, ShieldCheck, Wand2 } from 'lucide-react';
 
 type Tier = {
@@ -44,7 +45,7 @@ export default function SubscriptionsPage() {
       <Section eyebrow="Subscriptions" title="Support tiers that feel like having an engineer on call">
         <div className="grid gap-4 lg:grid-cols-3">
           {tiers.map((t, i) => (
-            <Card key={t.name} index={i} className={`p-6 ${t.featured ? 'border-[#2563eb]/30 bg-[#e0e7ff]' : ''}`}>
+            <GenericCard key={t.name} index={i} padding="p-6" className={t.featured ? 'border-[#2563eb]/30 bg-[#e0e7ff]' : ''}>
               <div className="flex items-center justify-between">
                 <div className="text-sm font-semibold text-slate-900">{t.name}</div>
                 {t.featured ? <Badge>Most popular</Badge> : <Badge>Monthly</Badge>}
@@ -80,7 +81,7 @@ export default function SubscriptionsPage() {
               >
                 Start with an intro call
               </Link>
-            </Card>
+            </GenericCard>
           ))}
         </div>
 
@@ -90,7 +91,7 @@ export default function SubscriptionsPage() {
             { icon: <Wand2 size={18} />, title: 'Continuous improvement', body: 'We keep optimizing: speed, SEO, content, workflows, and the tech stack.' },
             { icon: <ShieldCheck size={18} />, title: 'Stability first', body: 'Changes get tracked, documented, and deployed cleanly—like real engineering.' },
           ].map((x, i) => (
-            <Card key={x.title} index={i} className="p-5">
+            <GenericCard key={x.title} index={i} padding="p-5">
               <div className="flex items-start gap-3">
                 <div className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-100 text-slate-700">
                   {x.icon}
@@ -100,11 +101,11 @@ export default function SubscriptionsPage() {
                   <p className="mt-1 text-sm text-slate-600">{x.body}</p>
                 </div>
               </div>
-            </Card>
+            </GenericCard>
           ))}
         </div>
 
-        <Card className="mt-8 p-6">
+        <GenericCard padding="p-6" className="mt-8">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div className="flex items-start gap-3">
               <div className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-100 text-slate-700">
@@ -121,7 +122,7 @@ export default function SubscriptionsPage() {
               See services
             </Link>
           </div>
-        </Card>
+        </GenericCard>
       </Section>
     </div>
   );

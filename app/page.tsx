@@ -43,7 +43,7 @@ export default function Home() {
       <Section eyebrow="What I do" title="End-to-end digital execution for small businesses">
         <div className="grid gap-4 md:grid-cols-2">
           {servicesPreview.map((s, i) => (
-            <GenericCard key={s.title} index={i} animated padding="p-5">
+            <GenericCard key={s.title} index={i} padding="p-5">
               <div className="flex items-start gap-3">
                 <div className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-[#2563eb]/30 bg-[#2563eb]/10 text-[#2563eb]">
                   {s.icon}
@@ -82,7 +82,7 @@ export default function Home() {
               body: 'Deploy, monitor, and maintain. Subscription tiers available for ongoing updates.',
             },
           ].map((x, i) => (
-            <GenericCard key={x.title} index={i} animated padding="p-5">
+            <GenericCard key={x.title} index={i} padding="p-5">
               <div className="text-sm font-semibold">{x.title}</div>
               <p className="mt-1 text-sm text-slate-600">{x.body}</p>
             </GenericCard>
@@ -120,7 +120,6 @@ export default function Home() {
             <GenericCard
               key={p.name}
               index={i}
-              animated
               padding="p-6"
               className={p.featured ? 'border-[#2563eb]/30 bg-gradient-to-br from-[#e0e7ff] to-white shadow-soft' : ''}
             >
@@ -155,7 +154,7 @@ export default function Home() {
             { icon: <CheckCircle2 size={18} />, title: 'Stay maintainable', body: 'Clean structure so future edits aren’t painful.' },
             { icon: <Bot size={18} />, title: 'Automate the boring', body: 'Turn repeated tasks into one-click workflows.' },
           ].map((k, i) => (
-            <GenericCard key={k.title} index={i} animated padding="p-5">
+            <GenericCard key={k.title} index={i} padding="p-5">
               <div className="flex items-start gap-3">
                 <div className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-[#22c55e]/30 bg-[#22c55e]/10 text-[#15803d]">
                   {k.icon}
