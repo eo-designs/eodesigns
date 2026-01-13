@@ -31,7 +31,7 @@ export default function ContactPage() {
     <div className="min-h-[60vh]">
       <Section eyebrow="Contact" title="Reach out—let’s build something clean and scalable">
         <div className="grid gap-4 lg:grid-cols-5">
-          <Card animated index={0} className="p-6 lg:col-span-2">
+          <Card animated={false} index={0} className="p-6 lg:col-span-2">
             <div className="flex items-center justify-between">
               <div className="text-sm font-semibold text-slate-900">Direct</div>
               <Badge>Placeholder</Badge>
@@ -50,7 +50,7 @@ export default function ContactPage() {
             </p>
           </Card>
 
-          <Card animated index={1} className="p-6 lg:col-span-3">
+          <Card animated={false} index={1} className="p-6 lg:col-span-3">
             <div className="text-sm font-semibold text-slate-900">Send a message</div>
             <p className="mt-2 text-sm text-slate-600">
               This form posts to a server-side Next.js API route. Replace the handler with email (Resend/SendGrid) when ready.

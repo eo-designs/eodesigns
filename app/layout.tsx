@@ -27,18 +27,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="absolute top-[75%] -left-[8%] w-[400px] h-[400px] rounded-full bg-gradient-to-br from-blue-500/20 to-transparent animate-float" style={{ animationDirection: 'reverse', animationDelay: '15s' }}></div>
           
           {/* Geometric lines */}
-          <div className="absolute top-[15%] right-[5%] w-[3px] h-[200px] bg-gradient-to-b from-blue-400/50 to-transparent rotate-45 animate-pulse"></div>
           <div className="absolute top-[40%] left-[10%] w-[200px] h-[3px] bg-gradient-to-r from-green-400/50 to-transparent animate-pulse" style={{ animationDelay: '5s' }}></div>
           
           {/* Grid lines */}
           <div className="absolute top-[30%] left-[50%] w-[2px] h-[400px] bg-gradient-to-b from-blue-300/30 via-blue-300/15 to-transparent"></div>
           <div className="absolute top-[35%] left-[20%] w-[600px] h-[2px] bg-gradient-to-r from-transparent via-green-300/30 to-transparent"></div>
-          
-          {/* Circuit-like connections */}
-          <div className="absolute top-[20%] right-[18%] w-[150px] h-[2px] bg-gradient-to-r from-blue-400/50 to-transparent"></div>
-          <div className="absolute top-[20%] right-[18%] w-[2px] h-[60px] bg-gradient-to-b from-blue-400/50 to-transparent"></div>
-          <div className="absolute top-[40%] left-[13%] w-[120px] h-[2px] bg-gradient-to-r from-green-400/50 to-transparent"></div>
-          <div className="absolute top-[40%] left-[13%] w-[2px] h-[80px] bg-gradient-to-b from-green-400/50 to-transparent"></div>
           
           {/* Blob/circle animation */}
           <div className="absolute top-[60%] right-[30%] w-[250px] h-[250px] rounded-full bg-gradient-to-br from-blue-400/20 to-green-400/10 animate-float" style={{ animationDuration: '20s', animationDelay: '8s' }}></div>

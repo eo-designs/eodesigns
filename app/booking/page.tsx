@@ -7,7 +7,7 @@ export default function BookingPage() {
     <div className="min-h-[60vh]">
       <Section eyebrow="Booking" title="Book an intro call">
         <div className="grid gap-4 lg:grid-cols-5">
-          <Card animated index={0} className="p-6 lg:col-span-2">
+          <Card animated={false} index={0} className="p-6 lg:col-span-2">
             <div className="flex items-center justify-between">
               <div className="text-sm font-semibold text-slate-900">What we'll cover</div>
               <Badge>15–20 min</Badge>
@@ -33,7 +33,7 @@ export default function BookingPage() {
             </Link>
           </Card>
 
-          <Card animated index={1} className="p-6 lg:col-span-3">
+          <Card animated={false} index={1} className="p-6 lg:col-span-3">
             <div className="text-sm font-semibold text-slate-900">Scheduler embed (placeholder)</div>
             <p className="mt-2 text-sm text-slate-600">
               Drop your Cal.com or Calendly embed here. Replace the iframe URL with your scheduling link.

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
@@ -15,6 +15,31 @@ export function Card({
   index?: number;
   animated?: boolean;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (!animated) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasAnimated(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [animated]);
+
   if (!animated) {
     return (
       <div className={cn('rounded-2xl border border-slate-200 bg-white shadow-soft hover:shadow-glow transition-all duration-300', className)}>
@@ -25,10 +50,10 @@ export function Card({
 
   return (
     <motion.div
+      ref={ref}
       initial={{ opacity: 0, y: 40, scale: 0.92 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      animate={hasAnimated ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 40, scale: 0.92 }}
       transition={{ duration: 0.6, delay: index * 0.08, ease: 'easeOut' }}
-      viewport={{ once: true, amount: 0.2 }}
       className={cn('rounded-2xl border border-slate-200 bg-white shadow-soft hover:shadow-glow transition-all duration-300', className)}
     >
       {children}
