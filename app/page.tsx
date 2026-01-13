@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 import { Hero } from '@/components/Hero';
 import { Section } from '@/components/Section';
-import { Card, Badge } from '@/components/Cards';
+import { GenericCard } from '@/components/GenericCard';
+import { Badge } from '@/components/Cards';
 import { Bot, Camera, Wrench, LayoutTemplate, Rocket, CheckCircle2 } from 'lucide-react';
 
 const servicesPreview = [
@@ -42,7 +43,7 @@ export default function Home() {
       <Section eyebrow="What I do" title="End-to-end digital execution for small businesses">
         <div className="grid gap-4 md:grid-cols-2">
           {servicesPreview.map((s, i) => (
-            <Card key={s.title} index={i} className="p-5">
+            <GenericCard key={s.title} index={i} animated padding="p-5">
               <div className="flex items-start gap-3">
                 <div className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-[#2563eb]/30 bg-[#2563eb]/10 text-[#2563eb]">
                   {s.icon}
@@ -52,7 +53,7 @@ export default function Home() {
                   <p className="mt-1 text-sm text-slate-600">{s.body}</p>
                 </div>
               </div>
-            </Card>
+            </GenericCard>
           ))}
         </div>
         <div className="mt-8">
@@ -81,10 +82,10 @@ export default function Home() {
               body: 'Deploy, monitor, and maintain. Subscription tiers available for ongoing updates.',
             },
           ].map((x, i) => (
-            <Card key={x.title} index={i} className="p-5">
+            <GenericCard key={x.title} index={i} animated padding="p-5">
               <div className="text-sm font-semibold">{x.title}</div>
               <p className="mt-1 text-sm text-slate-600">{x.body}</p>
-            </Card>
+            </GenericCard>
           ))}
         </div>
 
@@ -116,10 +117,12 @@ export default function Home() {
               points: ['Roadmap + builds', 'Integrations + APIs', 'On-call hours', 'Scaling + analytics'],
             },
           ].map((p, i) => (
-            <Card
+            <GenericCard
               key={p.name}
               index={i}
-              className={`p-6 ${p.featured ? 'border-[#2563eb]/30 bg-gradient-to-br from-[#e0e7ff] to-white shadow-soft' : ''}`}
+              animated
+              padding="p-6"
+              className={p.featured ? 'border-[#2563eb]/30 bg-gradient-to-br from-[#e0e7ff] to-white shadow-soft' : ''}
             >
               <div className="flex items-center justify-between">
                 <div className="text-sm font-semibold">{p.name}</div>
@@ -140,7 +143,7 @@ export default function Home() {
               >
                 See details
               </Link>
-            </Card>
+            </GenericCard>
           ))}
         </div>
       </Section>
@@ -152,7 +155,7 @@ export default function Home() {
             { icon: <CheckCircle2 size={18} />, title: 'Stay maintainable', body: 'Clean structure so future edits aren’t painful.' },
             { icon: <Bot size={18} />, title: 'Automate the boring', body: 'Turn repeated tasks into one-click workflows.' },
           ].map((k, i) => (
-            <Card key={k.title} index={i} className="p-5">
+            <GenericCard key={k.title} index={i} animated padding="p-5">
               <div className="flex items-start gap-3">
                 <div className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-[#22c55e]/30 bg-[#22c55e]/10 text-[#15803d]">
                   {k.icon}
@@ -162,26 +165,24 @@ export default function Home() {
                   <p className="mt-1 text-sm text-slate-600">{k.body}</p>
                 </div>
               </div>
-            </Card>
+            </GenericCard>
           ))}
         </div>
 
-        <Card className="mt-8 p-6">
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div>
-              <div className="text-sm font-semibold">Ready to build your next system?</div>
-              <p className="mt-1 text-sm text-slate-600">Book an intro call and I'll map the quickest path from today → live + scalable.</p>
-            </div>
-            <div className="flex gap-2">
-              <Link href="/booking" className="rounded-2xl bg-[#2563eb] px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-[#1d4ed8] hover:scale-[1.02]">
-                Book intro call
-              </Link>
-              <Link href="/contact" className="rounded-2xl border-2 border-[#22c55e]/30 bg-white px-5 py-3 text-sm font-semibold text-[#15803d] transition hover:border-[#22c55e]/60 hover:bg-[#ecfdf3]">
-                Contact
-              </Link>
-            </div>
+        <GenericCard className="mt-8 p-6" display="flex" layout="flex-col md:flex-row md:items-center md:justify-between">
+          <div>
+            <div className="text-sm font-semibold">Ready to build your next system?</div>
+            <p className="mt-1 text-sm text-slate-600">Book an intro call and I'll map the quickest path from today → live + scalable.</p>
           </div>
-        </Card>
+          <div className="flex gap-2">
+            <Link href="/booking" className="rounded-2xl bg-[#2563eb] px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-[#1d4ed8] hover:scale-[1.02]">
+              Book intro call
+            </Link>
+            <Link href="/contact" className="rounded-2xl border-2 border-[#22c55e]/30 bg-white px-5 py-3 text-sm font-semibold text-[#15803d] transition hover:border-[#22c55e]/60 hover:bg-[#ecfdf3]">
+              Contact
+            </Link>
+          </div>
+        </GenericCard>
       </Section>
     </div>
   );
