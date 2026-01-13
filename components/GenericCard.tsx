@@ -167,6 +167,11 @@ interface GenericCardProps {
    * Pointer events
    */
   pointerEvents?: string;
+
+  /**
+   * Click handler
+   */
+  onClick?: () => void;
 }
 
 /**
@@ -205,6 +210,7 @@ export function GenericCard({
   animationEase = 'easeOut',
   observerThreshold = 0.2,
   onAnimationComplete,
+  onClick,
 }: GenericCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -268,7 +274,7 @@ export function GenericCard({
   // Non-animated card
   if (!animated) {
     return (
-      <div ref={ref} className={baseClasses}>
+      <div ref={ref} className={baseClasses} onClick={onClick}>
         {children}
       </div>
     );
@@ -283,6 +289,7 @@ export function GenericCard({
       transition={{ duration: animationDuration, delay: index * 0.08, ease: animationEase }}
       onAnimationComplete={onAnimationComplete}
       className={baseClasses}
+      onClick={onClick}
     >
       {children}
     </motion.div>
