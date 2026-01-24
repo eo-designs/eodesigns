@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Section } from '@/components/Section';
 import { Badge } from '@/components/Cards';
 import { GenericCard } from '@/components/GenericCard';
-import { Bot, Camera, ClipboardList, Cloud, Code2, Gauge, Headphones, Paintbrush, ShieldCheck, Workflow, Database, Video } from 'lucide-react';
+import { Bot, Camera, ClipboardList, Clock, Cloud, Code2, Gauge, Headphones, Paintbrush, ShieldCheck, Workflow, Database, Video } from 'lucide-react';
 
 type Item = { icon: React.ReactNode; title: string; body: string };
 type Bucket = { name: string; badge: string; items: Item[] };
@@ -93,6 +93,26 @@ export default function ServicesPage() {
               </Link>
               <Link href="/subscriptions" className="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">
                 View subscriptions
+              </Link>
+            </div>
+          </div>
+        </GenericCard>
+
+        <GenericCard padding="p-6" className="mt-6 border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100">
+          <div className="flex items-start gap-4">
+            <div className="mt-1 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-300 bg-white text-slate-700">
+              <Camera size={20} />
+            </div>
+            <div className="flex-1">
+              <div className="text-lg font-semibold text-slate-900">Prefer hourly for one-off work?</div>
+              <p className="mt-1 text-sm text-slate-600">Small fixes, quick projects, and ad-hoc items work great on an hourly basis.</p>
+              <div className="mt-4 text-2xl font-semibold text-slate-900">$75/hr</div>
+              <p className="mt-2 text-sm text-slate-600">Perfect for quick tweaks, small bug fixes, and adhoc requests that don't need a subscription.</p>
+              <Link
+                href="/booking"
+                className="mt-4 inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
+              >
+                Get started
               </Link>
             </div>
           </div>

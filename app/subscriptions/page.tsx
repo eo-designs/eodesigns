@@ -1,11 +1,8 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Section } from '@/components/Section';
 import { Badge } from '@/components/Cards';
 import { GenericCard } from '@/components/GenericCard';
-import { CustomerForm } from '@/components/CustomerForm';
 import { CheckCircle2, Sparkles, Clock, ShieldCheck, Wand2 } from 'lucide-react';
 
 type Tier = {
@@ -20,14 +17,14 @@ type Tier = {
 const tiers: Tier[] = [
   {
     name: 'Essential',
-    price: '$149/mo',
+    price: '$250/mo',
     tagline: 'Keep your site healthy with small updates and quick help.',
     bullets: ['Minor content updates', 'Basic monitoring', 'Email support', 'Monthly check-in'],
     bestFor: ['Small business sites', 'Basic maintenance', 'Light ongoing tweaks'],
   },
   {
     name: 'Digital Ops + Automation',
-    price: '$349/mo',
+    price: '$600/mo',
     featured: true,
     tagline: 'Priority support + automation-minded improvements.',
     bullets: ['Priority support window', 'Automation help (workflows/scripts)', 'Content ops assist', 'Quarterly optimization pass'],
@@ -42,32 +39,18 @@ const tiers: Tier[] = [
   },
 ];
 
-type TierKey = 'essential' | 'digitalOps' | 'growth';
-
-const tierMap: Record<string, TierKey> = {
-  'Essential': 'essential',
-  'Digital Ops + Automation': 'digitalOps',
-  'Growth Partner': 'growth',
-};
-
 export default function SubscriptionsPage() {
-  const [selectedTier, setSelectedTier] = useState<string | null>(null);
-
   return (
     <div className="min-h-[60vh]">
       <Section eyebrow="Subscriptions" title="Support tiers that feel like having an engineer on call">
         <div className="grid gap-4 lg:grid-cols-3">
           {tiers.map((t, i) => {
-            const isSelected = selectedTier === t.name;
             return (
               <GenericCard
                 key={t.name}
                 index={i}
                 padding="p-6"
-                className={`cursor-pointer transition ${
-                  isSelected ? 'ring-2 ring-[#2563eb]' : ''
-                } ${t.featured ? 'border-[#2563eb]/30 bg-[#e0e7ff]' : ''}`}
-                onClick={() => setSelectedTier(isSelected ? null : t.name)}
+                className={t.featured ? 'border-[#2563eb]/30 bg-[#e0e7ff]' : ''}
               >
                 <div className="flex items-center justify-between">
                   <div className="text-sm font-semibold text-slate-900">{t.name}</div>
@@ -96,37 +79,37 @@ export default function SubscriptionsPage() {
                   ))}
                 </div>
 
-                {t.name === 'Growth Partner' ? (
-                  <Link
-                    href="/booking"
-                    className={`mt-6 inline-flex w-full items-center justify-center rounded-2xl border border-slate-300 px-4 py-2 text-sm font-semibold transition bg-slate-100 text-slate-900 hover:bg-slate-200`}
-                  >
-                    Schedule consultation
-                  </Link>
-                ) : (
-                  <div className="mt-6 text-sm text-slate-600">
-                    {isSelected ? (
-                      <div className="text-blue-600 font-semibold">✓ Selected - fill in details below</div>
-                    ) : (
-                      <div>Click to select this tier</div>
-                    )}
-                  </div>
-                )}
+                <Link
+                  href="/contact"
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-2xl border border-slate-300 px-4 py-2 text-sm font-semibold transition bg-slate-100 text-slate-900 hover:bg-slate-200"
+                >
+                  Contact to get started
+                </Link>
               </GenericCard>
             );
           })}
         </div>
 
         {/* Payment Form */}
-        {selectedTier && selectedTier !== 'Growth Partner' && (
-          <GenericCard padding="p-6" className="mt-8">
-            <div className="text-lg font-semibold text-slate-900">Ready to get started with {selectedTier}?</div>
-            <p className="mt-2 text-sm text-slate-600">
-              Enter your details and we'll take you through a secure checkout powered by Stripe.
-            </p>
-            <CustomerForm tier={tierMap[selectedTier] as 'essential' | 'digital-ops' | 'growth-partner'} onSuccess={() => setSelectedTier(null)} />
-          </GenericCard>
-        )}
+        <GenericCard padding="p-6" className="mt-10 border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100">
+          <div className="flex items-start gap-4">
+            <div className="mt-1 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-300 bg-white text-slate-700">
+              <Clock size={20} />
+            </div>
+            <div className="flex-1">
+              <div className="text-lg font-semibold text-slate-900">Prefer hourly for one-off work?</div>
+              <p className="mt-1 text-sm text-slate-600">Small fixes, quick projects, and ad-hoc items work great on an hourly basis.</p>
+              <div className="mt-4 text-2xl font-semibold text-slate-900">$75/hr</div>
+              <p className="mt-2 text-sm text-slate-600">Perfect for quick tweaks, small bug fixes, and adhoc requests that don't need a subscription.</p>
+              <Link
+                href="/booking"
+                className="mt-4 inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
+              >
+                Get started
+              </Link>
+            </div>
+          </div>
+        </GenericCard>
 
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {[

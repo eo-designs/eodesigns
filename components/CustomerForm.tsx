@@ -30,15 +30,24 @@ export function CustomerForm({ tier, onSuccess }: CustomerFormProps) {
 
       const data = await response.json();
 
+      console.log('Checkout response:', { status: response.status, data });
+
       if (!response.ok) {
         throw new Error(data.error || 'Checkout failed');
       }
 
-      // Redirect to Stripe checkout
+      if (!data.url) {
+        throw new Error('No checkout URL returned');
+      }
+
+      // Redirect to Stripe checkout or demo page
       setStatus('redirecting');
+      console.log('Redirecting to:', data.url);
       window.location.href = data.url;
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong');
+      const errorMsg = err instanceof Error ? err.message : 'Something went wrong';
+      console.error('Checkout error:', errorMsg, err);
+      setError(errorMsg);
       setStatus('idle');
       setLoading(false);
     }

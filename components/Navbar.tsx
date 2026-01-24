@@ -22,9 +22,9 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-lg">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <div className="relative h-9 w-9 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-soft">
-            {/* Replace with your real logo at public/assets/logo.svg */}
-            <img src="/assets/logo.svg" alt="EO Designs" className="h-full w-full object-cover" />
+          <div className="relative h-16 w-16 overflow-hidden">
+            {/* Logo displayed at public/assets/logo.png */}
+            <img src="/assets/logo.png" alt="EO Designs" className="h-full w-full object-cover" />
           </div>
           <div className="leading-tight">
             <div className="text-sm font-semibold tracking-wide">EO Designs</div>

@@ -11,7 +11,7 @@ export default function BookingPage() {
           <GenericCard padding="p-6" colSpan="lg:col-span-2">
             <div className="flex items-center justify-between">
               <div className="text-sm font-semibold text-slate-900">What we'll cover</div>
-              <Badge>15–20 min</Badge>
+              <Badge>30 min</Badge>
             </div>
             <div className="mt-4 grid gap-2 text-sm text-slate-600">
               <div>• Your goals + constraints</div>
@@ -35,21 +35,22 @@ export default function BookingPage() {
           </GenericCard>
 
           <GenericCard padding="p-6" colSpan="lg:col-span-3" minHeight="min-h-[650px]" display="flex" layout="flex-col">
-            <div className="text-sm font-semibold text-slate-900">Scheduler embed (placeholder)</div>
+            <div className="text-sm font-semibold text-slate-900">Select a time</div>
             <p className="mt-2 text-sm text-slate-600">
-              Drop your Cal.com or Calendly embed here. Replace the iframe URL with your scheduling link.
+              Pick a time that works for you. Bookings automatically sync to both our calendars.
             </p>
 
             <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 flex-1">
               <iframe
                 title="Booking"
-                src="https://cal.com/your-username/intro"
+                src="https://cal.com/eo-designs/intro-call?embed=true&theme=light"
                 className="h-full w-full"
+                allow="payment"
               />
             </div>
 
             <p className="mt-3 text-xs text-slate-500">
-              Tip: If you want availability to sync with Google Calendar, connect it in your scheduler settings.
+              Powered by Cal.com • Syncs directly to Google Calendar
             </p>
           </GenericCard>
         </div>

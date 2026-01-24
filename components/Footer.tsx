@@ -17,7 +17,7 @@ export function Footer() {
             <div>
               <div className="flex items-center gap-3">
                 <div className="h-9 w-9 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-soft">
-                  <img src="/assets/logo.svg" alt="EO Designs" className="h-full w-full object-cover" />
+                  <img src="/assets/logo.png" alt="EO Designs" className="h-full w-full object-cover" />
                 </div>
                 <div>
                   <div className="text-sm font-semibold">EO Designs</div>

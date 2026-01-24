@@ -102,12 +102,12 @@ export default function Home() {
           {[
             {
               name: 'Essential',
-              price: '$149/mo',
+              price: '$250/mo',
               points: ['Small updates', 'Basic monitoring', 'Email support', 'Monthly check-in'],
             },
             {
               name: 'Digital Ops + Automation',
-              price: '$349/mo',
+              price: '$600/mo',
               points: ['Priority support', 'Automation help', 'Content ops assist', 'Quarterly optimization'],
               featured: true,
             },
