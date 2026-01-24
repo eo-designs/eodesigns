@@ -9,6 +9,7 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react';
 export default function ContactPage() {
   const [status, setStatus] = React.useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [message, setMessage] = React.useState<string>('');
+  const formRef = React.useRef<HTMLFormElement>(null);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -20,8 +21,8 @@ export default function ContactPage() {
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data?.error || 'Request failed');
       setStatus('sent');
-      setMessage('Thanks! Your message was received. (This starter logs messages server-side; wire email later.)');
-      e.currentTarget.reset();
+      setMessage("Got it — I'll reply within 1 business day.");
+      formRef.current?.reset();
     } catch (err: any) {
       setStatus('error');
       setMessage(err?.message || 'Something went wrong. Try again.');
@@ -35,7 +36,7 @@ export default function ContactPage() {
           <GenericCard padding="p-6" colSpan="lg:col-span-2">
             <div className="flex items-center justify-between">
               <div className="text-sm font-semibold text-slate-900">Direct</div>
-              <Badge>Placeholder</Badge>
+              <Badge>Replies in <span className="font-semibold">~1 business day</span></Badge>
             </div>
 
             <div className="mt-5 grid gap-3 text-sm text-slate-700">
@@ -54,10 +55,10 @@ export default function ContactPage() {
           <GenericCard padding="p-6" colSpan="lg:col-span-3" display="flex" layout="flex-col">
             <div className="text-sm font-semibold text-slate-900">Send a message</div>
             <p className="mt-2 text-sm text-slate-600">
-              This form posts to a server-side Next.js API route. Replace the handler with email (Resend/SendGrid) when ready.
+              I read every message personally. Once you submit, I get a Slack notification and will respond within 1 business day.
             </p>
 
-            <form onSubmit={onSubmit} className="mt-6 grid gap-4">
+            <form onSubmit={onSubmit} ref={formRef} className="mt-6 grid gap-4">
               {/* Honeypot (bots fill this) */}
               <input name="company_website" className="hidden" tabIndex={-1} autoComplete="off" />
 

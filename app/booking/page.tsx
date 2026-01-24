@@ -30,7 +30,7 @@ export default function BookingPage() {
               href="/contact"
               className="mt-6 inline-flex w-full items-center justify-center rounded-2xl border border-slate-300 bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
             >
-              Prefer email instead? Contact me
+              Prefer DM instead? Contact me
             </Link>
           </GenericCard>
 

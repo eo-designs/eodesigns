@@ -20,11 +20,16 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-lg">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-1">
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <div className="relative h-16 w-16 overflow-hidden">
+          <div className="relative h-24 w-24 overflow-hidden">
             {/* Logo displayed at public/assets/logo.png */}
-            <img src="/assets/logo.png" alt="EO Designs" className="h-full w-full object-cover" />
+            <img
+              src="/assets/logo.png"
+              alt="EO Designs"
+              className="h-full w-full object-cover origin-center"
+              style={{ transform: 'scale(1.7)' }}
+            />
           </div>
           <div className="leading-tight">
             <div className="text-sm font-semibold tracking-wide">EO Designs</div>
