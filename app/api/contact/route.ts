@@ -31,7 +31,7 @@ export async function POST(req: Request) {
     message: message.slice(0, 2000),
   });
 
-  // Notify via Slack DM (if configured)
+  // Notify via Slack (channel if configured, else DM)
   try {
     await sendSlackDM({ name, email, topic, message });
   } catch (e) {
