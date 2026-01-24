@@ -15,10 +15,6 @@ npm run dev
 Then open: http://localhost:3000
 
 ## 2) Replace placeholders
-### Logo
-Replace:
-- `public/assets/logo.svg`
-
 ### Hero background video
 Replace:
 - `public/video/hero.mp4`

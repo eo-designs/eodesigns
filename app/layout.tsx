@@ -3,13 +3,17 @@ import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://eodesigns.com';
+
 export const metadata: Metadata = {
   title: 'EO Designs — Web, Automation & Tech Ops',
   description: 'Engineer-built websites, automation, tech support, and media ops for small businesses.',
-  metadataBase: new URL('https://eodesigns.com'),
+  metadataBase: new URL(siteUrl),
   icons: {
-    icon: '/assets/favicon.svg',
-    apple: '/assets/favicon.svg',
+    icon: [
+      { url: '/assets/favicon.png', type: 'image/png' },
+    ],
+    apple: { url: '/assets/favicon.png', type: 'image/png' },
   },
   openGraph: {
     title: 'EO Designs',
