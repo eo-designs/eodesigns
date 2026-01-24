@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   title: 'EO Designs — Web, Automation & Tech Ops',
   description: 'Engineer-built websites, automation, tech support, and media ops for small businesses.',
   icons: {
-    icon: '/assets/favicon.png',
-    apple: '/assets/favicon.png',
+    icon: [{ url: '/assets/favicon.svg', type: 'image/svg+xml' }],
+    apple: '/assets/favicon.svg',
   },
   openGraph: {
     title: 'EO Designs',
