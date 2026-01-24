@@ -6,8 +6,14 @@
   color-scheme: light;
 }
 
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 html, body {
   height: 100%;
+  max-width: 100vw;
 }
 
 body {
