@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { sendSlackDM } from '@/lib/slack';
 
 export async function POST(req: Request) {
   const formData = await req.formData();
@@ -29,6 +30,13 @@ export async function POST(req: Request) {
     topic,
     message: message.slice(0, 2000),
   });
+
+  // Notify via Slack DM (if configured)
+  try {
+    await sendSlackDM({ name, email, topic, message });
+  } catch (e) {
+    console.warn('[CONTACT] Slack notification failed', e);
+  }
 
   return NextResponse.json({ ok: true });
 }
