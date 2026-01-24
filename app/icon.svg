@@ -1,0 +1,45 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="40" y1="40" x2="216" y2="216" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.35"/>
+    </linearGradient>
+    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+
+  <rect x="28" y="28" width="200" height="200" rx="48" fill="#0B0D14"/>
+  <rect x="28" y="28" width="200" height="200" rx="48" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+
+  <!-- glow -->
+  <circle cx="96" cy="88" r="44" fill="white" opacity="0.10" filter="url(#blur)"/>
+
+  <!-- chip -->
+  <rect x="70" y="70" width="116" height="116" rx="18" fill="url(#g)" opacity="0.16"/>
+  <rect x="78" y="78" width="100" height="100" rx="16" stroke="rgba(255,255,255,0.55)" stroke-width="2"/>
+
+  <!-- pins -->
+  <g opacity="0.55" stroke="rgba(255,255,255,0.65)" stroke-width="2" stroke-linecap="round">
+    <path d="M128 54V34"/>
+    <path d="M96 56V34"/>
+    <path d="M160 56V34"/>
+    <path d="M128 222V202"/>
+    <path d="M96 222V200"/>
+    <path d="M160 222V200"/>
+    <path d="M54 128H34"/>
+    <path d="M56 96H34"/>
+    <path d="M56 160H34"/>
+    <path d="M222 128H202"/>
+    <path d="M222 96H200"/>
+    <path d="M222 160H200"/>
+  </g>
+
+  <!-- EO letters -->
+  <path d="M92 150V106H132" stroke="rgba(255,255,255,0.9)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M92 128H124" stroke="rgba(255,255,255,0.9)" stroke-width="12" stroke-linecap="round" />
+  <path d="M92 150H132" stroke="rgba(255,255,255,0.9)" stroke-width="12" stroke-linecap="round" />
+
+  <path d="M168 116c0-10-8-18-18-18s-18 8-18 18v24c0 10 8 18 18 18s18-8 18-18v-24Z"
+        stroke="rgba(255,255,255,0.9)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
