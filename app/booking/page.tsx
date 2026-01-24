@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Section } from '@/components/Section';
 import { Badge } from '@/components/Cards';
 import { GenericCard } from '@/components/GenericCard';
+import { GoogleFormGate } from '@/components/GoogleFormGate';
 
 export default function BookingPage() {
   return (
@@ -35,23 +36,25 @@ export default function BookingPage() {
           </GenericCard>
 
           <GenericCard padding="p-6" colSpan="lg:col-span-3" minHeight="min-h-[650px]" display="flex" layout="flex-col">
-            <div className="text-sm font-semibold text-slate-900">Select a time</div>
-            <p className="mt-2 text-sm text-slate-600">
-              Pick a time that works for you. Bookings automatically sync to both our calendars.
-            </p>
+            <GoogleFormGate>
+              <div className="text-sm font-semibold text-slate-900">Select a time</div>
+              <p className="mt-2 text-sm text-slate-600">
+                Pick a time that works for you. Bookings automatically sync to both our calendars.
+              </p>
 
-            <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 flex-1">
-              <iframe
-                title="Booking"
-                src="https://cal.com/eo-designs/intro-call?embed=true&theme=light"
-                className="h-full w-full"
-                allow="payment"
-              />
-            </div>
+              <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 flex-1">
+                <iframe
+                  title="Booking"
+                  src="https://cal.com/eo-designs/intro-call?embed=true&theme=light"
+                  className="h-full w-full"
+                  allow="payment"
+                />
+              </div>
 
-            <p className="mt-3 text-xs text-slate-500">
-              Powered by Cal.com • Syncs directly to Google Calendar
-            </p>
+              <p className="mt-3 text-xs text-slate-500">
+                Powered by Cal.com • Syncs directly to Google Calendar
+              </p>
+            </GoogleFormGate>
           </GenericCard>
         </div>
       </Section>
