@@ -3,8 +3,9 @@
 import Link from 'next/link';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
-export default function DemoSuccessPage() {
+function SuccessContent() {
   const searchParams = useSearchParams();
   const tier = searchParams.get('tier');
   const name = searchParams.get('name');
@@ -68,5 +69,13 @@ export default function DemoSuccessPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function DemoSuccessPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <SuccessContent />
+    </Suspense>
   );
 }

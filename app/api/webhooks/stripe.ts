@@ -50,8 +50,8 @@ export async function POST(req: NextRequest) {
               stripe_subscription_id: stripeSubscription.id,
               tier,
               status: stripeSubscription.status,
-              current_period_start: new Date(stripeSubscription.current_period_start * 1000).toISOString(),
-              current_period_end: new Date(stripeSubscription.current_period_end * 1000).toISOString(),
+              current_period_start: (stripeSubscription as any).current_period_start ? new Date((stripeSubscription as any).current_period_start * 1000).toISOString() : null,
+              current_period_end: (stripeSubscription as any).current_period_end ? new Date((stripeSubscription as any).current_period_end * 1000).toISOString() : null,
             },
           ]);
 
@@ -72,8 +72,8 @@ export async function POST(req: NextRequest) {
           .from('subscriptions')
           .update({
             status: subscription.status,
-            current_period_start: new Date(subscription.current_period_start * 1000).toISOString(),
-            current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
+            current_period_start: (subscription as any).current_period_start ? new Date((subscription as any).current_period_start * 1000).toISOString() : null,
+            current_period_end: (subscription as any).current_period_end ? new Date((subscription as any).current_period_end * 1000).toISOString() : null,
             updated_at: new Date().toISOString(),
           })
           .eq('stripe_subscription_id', subscription.id);
@@ -113,7 +113,7 @@ export async function POST(req: NextRequest) {
         const { data: subscription } = await supabase
           .from('subscriptions')
           .select('customer_id')
-          .eq('stripe_subscription_id', invoice.subscription as string)
+          .eq('stripe_subscription_id', (invoice as any).subscription as string)
           .single();
 
         if (subscription) {
@@ -123,7 +123,7 @@ export async function POST(req: NextRequest) {
               stripe_invoice_id: invoice.id,
               amount_paid: invoice.amount_paid,
               invoice_url: invoice.hosted_invoice_url,
-              paid_at: new Date(invoice.paid * 1000).toISOString(),
+              paid_at: invoice.status_transitions?.paid_at ? new Date(invoice.status_transitions.paid_at * 1000).toISOString() : new Date().toISOString(),
             },
           ]);
 

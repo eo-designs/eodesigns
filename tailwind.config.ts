@@ -30,8 +30,8 @@ const config: Config = {
           '100%': { transform: 'translateX(100%)' },
         },
         pulse: {
-          '0%, 100%': { opacity: 0.9 },
-          '50%': { opacity: 1 },
+          '0%, 100%': { opacity: '0.9' },
+          '50%': { opacity: '1' },
         },
         'matrix-scroll': {
           '0%': { transform: 'translateY(-100%)' },
