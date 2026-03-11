@@ -13,7 +13,7 @@ const buckets: Bucket[] = [
     name: 'Web & product builds',
     badge: 'Modern code, full control',
     items: [
-      { icon: <Code2 size={18} />, title: 'Custom websites (no Wix)', body: 'Fast, SEO-friendly sites with clean code you own. Built to scale with payments, booking, and portals.' },
+      { icon: <Code2 size={18} />, title: 'Custom websites (including Wix)', body: 'Fast, SEO-friendly sites with clean code you own. Built to scale with payments, booking, and portals.' },
       { icon: <Gauge size={18} />, title: 'Performance tuning', body: 'Speed, Core Web Vitals, SEO foundations, analytics, and conversion-focused UX.' },
       { icon: <Paintbrush size={18} />, title: 'Brand + UI polish', body: 'Design systems, landing pages, digital business cards, and print-ready assets.' },
     ],
