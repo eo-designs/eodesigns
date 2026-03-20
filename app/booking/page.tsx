@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Suspense } from 'react';
 import { Section } from '@/components/Section';
 import { Badge } from '@/components/Cards';
 import { GenericCard } from '@/components/GenericCard';
@@ -36,25 +37,27 @@ export default function BookingPage() {
           </GenericCard>
 
           <GenericCard padding="p-6" colSpan="lg:col-span-3" minHeight="min-h-[650px]" display="flex" layout="flex-col">
-            <GoogleFormGate>
-              <div className="text-sm font-semibold text-slate-900">Select a time</div>
-              <p className="mt-2 text-sm text-slate-600">
-                Pick a time that works for you. Bookings automatically sync to both our calendars.
-              </p>
+            <Suspense fallback={<div className="text-sm text-slate-600">Loading booking flow...</div>}>
+              <GoogleFormGate>
+                <div className="text-sm font-semibold text-slate-900">Select a time</div>
+                <p className="mt-2 text-sm text-slate-600">
+                  Pick a time that works for you. Bookings automatically sync to both our calendars.
+                </p>
 
-              <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 flex-1">
-                <iframe
-                  title="Booking"
-                  src="https://cal.com/eo-designs/intro-call?embed=true&theme=light"
-                  className="h-full w-full"
-                  allow="payment"
-                />
-              </div>
+                <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 flex-1">
+                  <iframe
+                    title="Booking"
+                    src="https://cal.com/eo-designs/intro-call?embed=true&theme=light"
+                    className="h-full w-full"
+                    allow="payment"
+                  />
+                </div>
 
-              <p className="mt-3 text-xs text-slate-500">
-                Powered by Cal.com • Syncs directly to Google Calendar
-              </p>
-            </GoogleFormGate>
+                <p className="mt-3 text-xs text-slate-500">
+                  Powered by Cal.com • Syncs directly to Google Calendar
+                </p>
+              </GoogleFormGate>
+            </Suspense>
           </GenericCard>
         </div>
       </Section>
